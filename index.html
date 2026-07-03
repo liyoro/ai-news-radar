@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Radar · 伯乐Skill</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="alternate" type="application/rss+xml" title="AI News Radar RSS" href="data/latest-24h.json" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🤖 AI News Radar</h1>
+      <p class="subtitle">伯乐Skill · 每日 AI 信号雷达</p>
+      <div class="meta">
+        <span id="update-time">加载中…</span>
+        <span id="item-count"></span>
+      </div>
+      <div class="controls">
+        <input
+          type="search"
+          id="search"
+          placeholder="🔍 搜索标题…"
+          autocomplete="off"
+        />
+        <select id="source-filter">
+          <option value="">全部来源</option>
+        </select>
+        <label class="toggle-label">
+          <input type="checkbox" id="show-all" />
+          <span>显示全量（非仅 AI）</span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="stats-bar">
+      <span class="stat" id="stat-total">—</span>
+      <span class="stat" id="stat-ai">—</span>
+      <span class="stat" id="stat-sources">—</span>
+    </div>
+    <div id="news-list"></div>
+    <div id="no-result" style="display:none">
+      <p>没有找到匹配的条目。</p>
+    </div>
+    <div id="error" style="display:none">
+      <p>⚠️ 数据加载失败，请稍后刷新。</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        由 <a href="https://github.com/liyoro/ai-news-radar">AI News Radar</a> + 伯乐Skill 自动更新 ·
+        <a href="data/latest-24h.json">JSON 数据</a> ·
+        <a href="feeds/follow.example.opml">示例 OPML</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

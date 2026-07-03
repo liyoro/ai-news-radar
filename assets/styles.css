@@ -1,0 +1,189 @@
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-hover: #79c0ff;
+  --tag-ai-bg: #1f3a5f;
+  --tag-ai-text: #79c0ff;
+  --tag-src-bg: #21262d;
+  --radius: 8px;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Layout ────────────────────────────────────────────────── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main.container { flex: 1; padding-top: 24px; padding-bottom: 48px; }
+
+/* ── Header ─────────────────────────────────────────────────── */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0 16px;
+  background: var(--card);
+}
+
+h1 { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.subtitle { color: var(--text-muted); font-size: 0.875rem; margin-top: 2px; }
+
+.meta {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 16px;
+}
+
+/* ── Controls ───────────────────────────────────────────────── */
+.controls {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+input[type="search"], select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="search"] { flex: 1; min-width: 180px; }
+input[type="search"]:focus, select:focus { border-color: var(--accent); }
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.toggle-label input { accent-color: var(--accent); }
+
+/* ── Stats Bar ──────────────────────────────────────────────── */
+#stats-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stat {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stat::before { content: "· "; }
+
+/* ── News List ──────────────────────────────────────────────── */
+#news-list { display: flex; flex-direction: column; gap: 12px; }
+
+.news-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.news-item:hover {
+  border-color: var(--accent);
+  transform: translateX(2px);
+}
+
+.item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.item-title:hover { color: var(--accent); }
+
+.item-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.badge-ai {
+  background: var(--tag-ai-bg);
+  color: var(--tag-ai-text);
+  border: 1px solid #2a4a7f;
+}
+
+.badge-src {
+  background: var(--tag-src-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.item-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.item-meta a { color: var(--accent); text-decoration: none; }
+.item-meta a:hover { text-decoration: underline; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .controls { flex-direction: column; align-items: stretch; }
+  input[type="search"] { min-width: unset; }
+  #stats-bar { flex-direction: column; gap: 4px; }
+  .stat::before { content: ""; }
+}

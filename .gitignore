@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# 数据文件 — 由 GitHub Actions cron 每天重生成，不入仓
+data/latest-24h.json
+data/latest-24h-all.json
+data/archive.json
+data/source-status.json
+# 保留 data/.gitkeep 占位，让 data/ 目录能被 clone 下来
+
+# 本地调试
+*.log
+/tmp/
